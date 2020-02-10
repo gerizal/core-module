@@ -1,5 +1,5 @@
 {
-	"name": "avectris/core-module",
+	"name": "gerizal/core-module",
 	"type": "cwa-module",
 	"description": "Core Module for Core Web App Platform.",
 	"keywords": [
@@ -20,8 +20,8 @@
     "license": "Avectris",
 	"authors": [
         {
-            "name": "Avectris",
-            "email": "mteguhasuandi@gmail.com",
+            "name": "rainfield",
+            "email": "rizal@astrnt.co",
             "homepage": "http://mtasuandi.github.io"
         }
     ],
