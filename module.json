@@ -1,0 +1,31 @@
+{
+    "name": "Core",
+    "alias": "core",
+    "description": "Core Module for Core Web App Platform.",
+    "keywords": [
+        "avectris",
+        "core web app",
+        "core",
+        "user",
+        "user management",
+        "user integration",
+        "user preference",
+        "user level",
+        "profile",
+        "settings",
+        "login",
+        "registration",
+        "password reset"
+    ],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Core\\Providers\\CoreServiceProvider"
+    ],
+    "aliases":{
+        "ConfigHelper": "Modules\\Core\\Helpers\\ConfigHelper"
+    },
+    "files": [
+        "start.php"
+    ]
+}

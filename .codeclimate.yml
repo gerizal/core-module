@@ -1,0 +1,39 @@
+engines:
+  fixme:
+    enabled: true
+    config:
+      strings:
+      - FIXME
+      - TODO
+      - HACK
+      - BUG
+  duplication:
+    enabled: false
+    config:
+      languages:
+      - javascript
+      - php
+  phpmd:
+    enabled: true
+    config:
+      file_extensions: "php"
+      rulesets: "Rulesets/PHPMD_Ruleset.xml"
+  phpcodesniffer:
+    enabled: true
+    exclude_paths:
+    - "Database/Migrations/"
+    config:
+      file_extensions: "php"
+      standard: "PSR2,Rulesets/PHPCodeSniffer_Ruleset.xml"
+      ignore_warnings: false
+ratings:
+  paths:
+  - "**.php"
+exclude_paths:
+- .codeclimate.yml
+- Assets
+- Build
+- Entities
+- Libraries
+- Repositories
+- vendor

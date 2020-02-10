@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<ruleset name="CoreWebAppPHPMDRulesets" xmlns="http://pmd.sf.net/ruleset/1.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+    <description>Core Web App - PHPMD Rulesets</description>
+    
+    <!-- Unused Code Rules -->
+    <rule ref="rulesets/unusedcode.xml"></rule>
+
+    <!-- Design Rules -->
+    <rule ref="rulesets/design.xml"></rule>
+
+    <!-- ShortVariable -->
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <priority>1</priority>
+        <properties>
+            <property name="minimum" value="1"></property>
+            <property name="exceptions" value=""></property>
+        </properties>
+    </rule>
+
+    <!-- LongVariable -->
+    <rule ref="rulesets/naming.xml/LongVariable">
+        <priority>2</priority>
+        <properties>
+            <property name="maximum" value="20"></property>
+        </properties>
+    </rule>
+
+    <!-- ShortMethodName -->
+    <rule ref="rulesets/naming.xml/ShortMethodName">
+        <priority>3</priority>
+        <properties>
+            <property name="minimum" value="2"></property>
+            <property name="exceptions" value=""></property>
+        </properties>
+    </rule>
+
+    <!-- ConstructorWithNameAsEnclosingClass -->
+    <rule ref="rulesets/naming.xml/ConstructorWithNameAsEnclosingClass"></rule>
+
+    <!-- ConstantNamingConventions -->
+    <rule ref="rulesets/naming.xml/ConstantNamingConventions"></rule>
+
+    <!-- BooleanGetMethodName -->
+    <rule ref="rulesets/naming.xml/BooleanGetMethodName">
+        <priority>4</priority>
+        <properties>
+            <property name="checkParameterizedMethods" value="false"></property>
+        </properties>
+    </rule>
+
+    <!-- StaticAccess -->
+    <rule ref="rulesets/cleancode.xml">
+        <exclude name="StaticAccess"></exclude>
+    </rule>
+
+    <!-- CyclomaticComplexity -->
+    <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
+        <priority>5</priority>
+        <properties>
+            <property name="reportLevel" value="20"></property>
+            <property name="showClassesComplexity" value="true"></property>
+            <property name="showMethodsComplexity" value="true"></property>
+        </properties>
+    </rule>
+
+    <!-- NPathComplexity -->
+    <rule ref="rulesets/codesize.xml/NPathComplexity">
+        <priority>6</priority>
+        <properties>
+            <property name="minimum" value="200"></property>
+        </properties>
+    </rule>
+
+    <!-- ExcessiveMethodLength -->
+    <rule ref="rulesets/codesize.xml/ExcessiveMethodLength">
+        <priority>7</priority>
+        <properties>
+            <property name="minimum" value="100"></property>
+            <property name="ignore-whitespace" value="false"></property>
+        </properties>
+    </rule>
+
+    <!-- ExcessiveClassLength -->
+    <rule ref="rulesets/codesize.xml/ExcessiveClassLength">
+        <priority>8</priority>
+        <properties>
+            <property name="minimum" value="1000"></property>
+            <property name="ignore-whitespace" value="false"></property>
+        </properties>
+    </rule>
+
+    <!-- ExcessiveParameterList -->
+    <rule ref="rulesets/codesize.xml/ExcessiveParameterList">
+        <priority>9</priority>
+        <properties>
+            <property name="minimum" value="10"></property>
+        </properties>
+    </rule>
+
+    <!-- ExcessivePublicCount -->
+    <rule ref="rulesets/codesize.xml/ExcessivePublicCount">
+        <priority>10</priority>
+        <properties>
+            <property name="minimum" value="45"></property>
+        </properties>
+    </rule>
+
+    <!-- TooManyFields -->
+    <rule ref="rulesets/codesize.xml/TooManyFields">
+        <priority>11</priority>
+        <properties>
+            <property name="maxfields" value="15"></property>
+        </properties>
+    </rule>
+
+    <!-- TooManyMethods -->
+    <rule ref="rulesets/codesize.xml/TooManyMethods">
+        <priority>12</priority>
+        <properties>
+            <property name="maxmethods" value="25"></property>
+            <property name="ignorepattern" value="(^(set|get))i"></property>
+        </properties>
+    </rule>
+
+    <!-- TooManyPublicMethods -->
+    <rule ref="rulesets/codesize.xml/TooManyPublicMethods">
+        <priority>13</priority>
+        <properties>
+            <property name="maxmethods" value="15"></property>
+            <property name="ignorepattern" value="(^(set|get))i"></property>
+        </properties>
+    </rule>
+
+    <!-- ExcessiveClassComplexity -->
+    <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
+        <priority>14</priority>
+        <properties>
+            <property name="maximum" value="50"></property>
+        </properties>
+    </rule>
+</ruleset>

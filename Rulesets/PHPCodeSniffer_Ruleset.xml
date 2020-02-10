@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="CoreWebAppPHPCodeSnifferRulesets">
+    <description>Core Web App - PHPCodeSniffer Rulesets</description>
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="130"></property>
+            <property name="absoluteLineLimit" value="130"></property>
+        </properties>
+    </rule>
+</ruleset>

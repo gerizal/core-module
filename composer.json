@@ -1,0 +1,33 @@
+{
+	"name": "avectris/core-module",
+	"type": "cwa-module",
+	"description": "Core Module for Core Web App Platform.",
+	"keywords": [
+        "avectris",
+        "core web app",
+        "core",
+        "user",
+        "user management",
+        "user integration",
+        "user preference",
+        "user level",
+        "profile",
+        "settings",
+        "login",
+        "registration",
+        "password reset"
+    ],
+    "license": "Avectris",
+	"authors": [
+        {
+            "name": "Avectris",
+            "email": "mteguhasuandi@gmail.com",
+            "homepage": "http://mtasuandi.github.io"
+        }
+    ],
+    "autoload": {
+		"psr-4": {
+			"Modules\\Core\\": ""
+		}
+	}
+}
