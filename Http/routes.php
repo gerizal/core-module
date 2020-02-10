@@ -146,7 +146,7 @@ Route::get('cwa_css/{cwa_module}/{file}', function ($cwa_module, $file) {
     if ($ext == 'off' || $ext == 'ttf') {
         $response = Response::make(
             file_get_contents(
-                base_path().'/vendor/avectris/core-module/Assets/AdminLTE/fonts/'.$file
+                base_path().'/vendor/gerizal/core-module/Assets/AdminLTE/fonts/'.$file
             )
         );
         $response->header('Content-Type', 'font/opentype');
@@ -155,7 +155,7 @@ Route::get('cwa_css/{cwa_module}/{file}', function ($cwa_module, $file) {
 
     $response = Response::make(
         file_get_contents(
-            base_path().'/vendor/avectris/'.$cwa_module.'-module/Assets/AdminLTE/css/'.str_replace('&', '/', $file)
+            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/css/'.str_replace('&', '/', $file)
         )
     );
     $response->header('Content-Type', 'text/css');
@@ -165,7 +165,7 @@ Route::get('cwa_css/{cwa_module}/{file}', function ($cwa_module, $file) {
 Route::get('cwa_js/{cwa_module}/{file}', function ($cwa_module, $file) {
     $response = Response::make(
         file_get_contents(
-            base_path().'/vendor/avectris/'.$cwa_module.'-module/Assets/AdminLTE/js/'.$file
+            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/js/'.$file
         )
     );
     $response->header('Content-Type', 'text/javascript');
@@ -175,7 +175,7 @@ Route::get('cwa_js/{cwa_module}/{file}', function ($cwa_module, $file) {
 Route::get('cwa_img/{cwa_module}/{file}', function ($cwa_module, $file) {
     $response = Response::make(
         file_get_contents(
-            base_path().'/vendor/avectris/'.$cwa_module.'-module/Assets/AdminLTE/img/'.$file
+            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/img/'.$file
         )
     );
     $response->header('Content-Type', 'text/css');
@@ -186,7 +186,7 @@ Route::get('cwa_plugin/{cwa_module}/{file}', function ($cwa_module, $file) {
     if ($file == 'blue.png') {
         $response = Response::make(
             file_get_contents(
-                base_path().'/vendor/avectris/'.$cwa_module.'-module/Assets/AdminLTE/plugins/iCheck/square/'.$file
+                base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/plugins/iCheck/square/'.$file
             )
         );
         return $response;
@@ -194,7 +194,7 @@ Route::get('cwa_plugin/{cwa_module}/{file}', function ($cwa_module, $file) {
 
     $response = Response::make(
         @file_get_contents(
-            base_path().'/vendor/avectris/'.$cwa_module.'-module/Assets/AdminLTE/plugins/'.str_replace('&', '/', $file)
+            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/plugins/'.str_replace('&', '/', $file)
         )
     );
 

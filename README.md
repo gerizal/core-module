@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-composer require avectris/core-module dev-master
+composer require gerizal/core-module dev-master
 ```
 
 ## Hooks
