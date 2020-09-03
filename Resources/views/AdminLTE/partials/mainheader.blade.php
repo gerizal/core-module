@@ -1,7 +1,9 @@
 <?php
-    $avatar = Auth::user()->avatar->url('thumb');
-    $avatar = str_ireplace('/system/App/User', '', $avatar);
-    $avatar = str_ireplace('/system/Modules/Core/User', '', $avatar);
+    // $avatar = Auth::user()->avatar->url('thumb');
+    // $avatar = str_ireplace('/system/App/User', '', $avatar);
+    // $avatar = str_ireplace('/system/Modules/Core/User', '', $avatar);
+
+    $avatar = env('AZURE_EDGE').env('AZURE_STORAGE_CONTAINER_IMAGE_BUCKET').'/avatars/' . Auth::user()->id . '/original/'. Auth::user()->avatar_file_name;
 
     $av = config('core.assets.image.avatar_dummy');
 

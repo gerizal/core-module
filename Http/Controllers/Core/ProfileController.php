@@ -31,9 +31,10 @@ class ProfileController extends Controller
     public function index()
     {
         $profile            = Auth::user();
-        $avatarOriginal     = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url()));
-        $avatarMedium       = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('medium')));
-        $avatarThumbnail    = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('thumb')));
+        // $avatarOriginal     = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url()));
+        // $avatarMedium       = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('medium')));
+        // $avatarThumbnail    = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('thumb')));
+        $avatarOriginal     = env('AZURE_EDGE').env('AZURE_STORAGE_CONTAINER_IMAGE_BUCKET').'/avatars/' . $profile->id . '/original/'. $profile->avatar_file_name;
         $userLevelIds       = json_decode($profile->userpreference->userlevel_id);
         $updateAvatarUrl    = url('profile/'.$profile->uniqueid().'/update_avatar');
 
@@ -201,7 +202,18 @@ class ProfileController extends Controller
 
     public function updateAvatar(Request $request, User $user)
     {
-        $user->avatar = $request->avatar;
+        // $user->avatar = $request->avatar;
+        // \Log::info($request->avatar);
+        // $filename = $request->avatar;
+        // $user->avatar_file_name = $filename;
+        // $user->avatar_file_size = File::size($request->file('avatar'));
+        // $user->avatar_content_type = File::mimeType($request->file('avatar'));
+        // $user->avatar_updated_at = \Carbon\Carbon::now('UTC');
+
+        // // upload
+        // $azure = Storage::disk('azureImageBucket');
+        // $filepath = 'avatars/original/'. $user->id . '/original/' . $filename;
+        // $azure->put($filepath, file_get_contents($file), 'public');
         $user->update();
         return 'AVATAR_UPDATED';
     }

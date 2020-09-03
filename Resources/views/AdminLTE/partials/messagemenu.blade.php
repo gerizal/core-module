@@ -15,13 +15,13 @@
                         <a href="#">
                             <div class="pull-left">
                                 <!-- User Image -->
-                                @if (!file_exists(public_path() . Auth::user()->avatar->url('thumb')))
+                                <!-- @if (!file_exists(public_path() . Auth::user()->avatar->url('thumb'))) -->
                                     <img src="{{ config('core.assets.image.avatar_dummy') }}"
                                         class="img-circle" alt="User Image">
-                                @else
+                                <!-- @else
                                     <img src="{{ url() . Auth::user()->avatar->url('thumb') }}"
                                         class="img-circle" alt="User Image">
-                                @endif
+                                @endif -->
                             </div>
                             
                             <!-- Message title and timestamp -->
