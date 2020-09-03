@@ -31,6 +31,7 @@ class ProfileController extends Controller
     public function index()
     {
         $profile            = Auth::user();
+        // januar's here
         // $avatarOriginal     = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url()));
         // $avatarMedium       = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('medium')));
         // $avatarThumbnail    = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('thumb')));
