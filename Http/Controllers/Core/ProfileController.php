@@ -36,6 +36,8 @@ class ProfileController extends Controller
         // $avatarMedium       = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('medium')));
         // $avatarThumbnail    = url(str_replace('App/User', 'Modules/Core/User', $profile->avatar->url('thumb')));
         $avatarOriginal     = env('AZURE_EDGE').env('AZURE_STORAGE_CONTAINER_IMAGE_BUCKET').'/avatars/' . $profile->id . '/original/'. $profile->avatar_file_name;
+        $avatarMedium       = $avatarOriginal;
+        $avatarThumbnail       = $avatarOriginal;
         $userLevelIds       = json_decode($profile->userpreference->userlevel_id);
         $updateAvatarUrl    = url('profile/'.$profile->uniqueid().'/update_avatar');
 
