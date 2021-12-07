@@ -9,13 +9,13 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 use Vinkla\Hashids\Facades\Hashids;
-use Codesleeve\Stapler\ORM\StaplerableInterface;
-use Codesleeve\Stapler\ORM\EloquentTrait;
+// use Codesleeve\Stapler\ORM\StaplerableInterface;
+// use Codesleeve\Stapler\ORM\EloquentTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract, StaplerableInterface
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword, EloquentTrait, SoftDeletes;
+    use Authenticatable, CanResetPassword, SoftDeletes;
 
     /**
     * The database table used by the model.
@@ -40,12 +40,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function __construct(array $attributes = array())
     {
-        $this->hasAttachedFile('avatar', [
-            'styles'    => [
-                'medium'    => '300x300',
-                'thumb'     => '100x100'
-            ]
-        ]);
+
         parent::__construct($attributes);
     }
 

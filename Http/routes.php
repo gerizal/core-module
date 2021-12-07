@@ -9,7 +9,7 @@ Route::get('/', function () {
  * Authentication
  */
 Route::get('auth/login', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@showLoginForm');
-Route::post('auth/login', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@login');
+// Route::post('auth/login', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@login');
 Route::get('auth/logout', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@logout');
 
 /**
