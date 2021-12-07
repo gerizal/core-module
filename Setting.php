@@ -5,12 +5,12 @@ namespace Modules\Core;
 use Illuminate\Database\Eloquent\Model;
 
 use Vinkla\Hashids\Facades\Hashids;
-use Codesleeve\Stapler\ORM\StaplerableInterface;
-use Codesleeve\Stapler\ORM\EloquentTrait;
+// use Codesleeve\Stapler\ORM\StaplerableInterface;
+// use Codesleeve\Stapler\ORM\EloquentTrait;
 
-class Setting extends Model implements StaplerableInterface
+class Setting extends Model
 {
-    use EloquentTrait;
+    // use EloquentTrait;
 
     protected $guarded  = [];
     protected $table    = 'cwa_settings';
@@ -44,12 +44,7 @@ class Setting extends Model implements StaplerableInterface
 
     public function __construct(array $attributes = array())
     {
-        $this->hasAttachedFile('application_logo', [
-            'styles' => [
-                'medium'    => '300x300',
-                'thumb'     => '100x100'
-            ]
-        ]);
+
         parent::__construct($attributes);
     }
 

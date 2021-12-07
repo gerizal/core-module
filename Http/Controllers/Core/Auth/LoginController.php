@@ -38,7 +38,7 @@ class LoginController extends Controller
         if (view()->exists('cwaextends.login')) {
             return view('cwaextends.login');
         }
-        
+
         return view('core::core.auth.login');
     }
 
@@ -66,11 +66,11 @@ class LoginController extends Controller
          * Login using hash password for specific application
          */
         $getUserFromEmail = User::where('email', $credentials['email'])->first();
-        
+
         if (!is_null($getUserFromEmail)) {
             if ($credentials['password'] === $getUserFromEmail->password) {
                 Auth::loginUsingId($getUserFromEmail->id);
-                
+
                 return $this->sendLoginResponse($request);
             }
         }
@@ -97,7 +97,7 @@ class LoginController extends Controller
 
         $isUserExpired              = Auth::user()->checkUserExpiration();
         $redirectWhenExpired        = SettingHelper::redirect_when_expired();
-        
+
         if (empty($redirectWhenExpired)) {
             // Redirect to expired route by default
             $redirectWhenExpired    = 'expired';
@@ -118,7 +118,7 @@ class LoginController extends Controller
             }
 
             $isExpired      = in_array(true, $expireds);
-            
+
             if ($isExpired) {
                 Auth::logout();
 
@@ -199,7 +199,7 @@ class LoginController extends Controller
         if (!empty(SettingHelper::logout_redirect())) {
             $logoutRedirect = SettingHelper::logout_redirect();
         }
-        
+
         return redirect($logoutRedirect);
     }
 
