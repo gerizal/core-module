@@ -8,59 +8,59 @@ Route::get('/', function () {
 /**
  * Authentication
  */
-Route::get('auth/login', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@showLoginForm');
-Route::post('auth/login', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@login');
-Route::get('auth/logout', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@logout');
+// Route::get('auth/login', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@showLoginForm');
+// Route::post('auth/login', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@login');
+// Route::get('auth/logout', 'Modules\Core\Http\Controllers\Core\Auth\LoginController@logout');
 
 /**
  * Registration
  */
-Route::get('auth/register', 'Modules\Core\Http\Controllers\Core\Auth\RegisterController@showRegistrationForm');
-Route::post('auth/register', 'Modules\Core\Http\Controllers\Core\Auth\RegisterController@register');
+// Route::get('auth/register', 'Modules\Core\Http\Controllers\Core\Auth\RegisterController@showRegistrationForm');
+// Route::post('auth/register', 'Modules\Core\Http\Controllers\Core\Auth\RegisterController@register');
 
 /**
  * Password reset link request
  */
-Route::get('password/email', 'Modules\Core\Http\Controllers\Core\Auth\ForgotPasswordController@showLinkRequestForm');
-Route::post('password/email', 'Modules\Core\Http\Controllers\Core\Auth\ForgotPasswordController@sendResetLinkEmail');
+// Route::get('password/email', 'Modules\Core\Http\Controllers\Core\Auth\ForgotPasswordController@showLinkRequestForm');
+// Route::post('password/email', 'Modules\Core\Http\Controllers\Core\Auth\ForgotPasswordController@sendResetLinkEmail');
 
 /**
  * Password reset routes
  */
-Route::get('password/reset/{token}', 'Modules\Core\Http\Controllers\Core\Auth\ResetPasswordController@showResetForm');
-Route::post('password/reset', 'Modules\Core\Http\Controllers\Core\Auth\ResetPasswordController@reset');
+// Route::get('password/reset/{token}', 'Modules\Core\Http\Controllers\Core\Auth\ResetPasswordController@showResetForm');
+// Route::post('password/reset', 'Modules\Core\Http\Controllers\Core\Auth\ResetPasswordController@reset');
 
 /**
  * Home
  */
-Route::get('/home', 'Modules\Core\Http\Controllers\Core\HomeController@index');
+// Route::get('/home', 'Modules\Core\Http\Controllers\Core\HomeController@index');
 
 /**
  * Maintenance
  */
-Route::get('/maintenance', 'Modules\Core\Http\Controllers\Core\MaintenanceController@index');
+// Route::get('/maintenance', 'Modules\Core\Http\Controllers\Core\MaintenanceController@index');
 
 /**
  * Users
  */
-Route::post('user/activate', [
-    'as' => 'user.activate',
-    'uses' => 'Modules\Core\Http\Controllers\Core\UserController@toggleActivate'
-]);
-Route::post(
-    '/user/{user}/admin_reset_user_password',
-    'Modules\Core\Http\Controllers\Core\UserController@adminResetUserPassword'
-);
-Route::post(
-    '/user/{user}/admin_trash_user',
-    'Modules\Core\Http\Controllers\Core\UserController@adminTrashUser'
-);
-Route::get('/user/display', 'Modules\Core\Http\Controllers\Core\UserController@display');
-Route::resource('user', 'Modules\Core\Http\Controllers\Core\UserController');
-Route::bind('user', function ($value) {
-    $id = Hashids::decode($value)[0];
-    return Modules\Core\User::find($id);
-});
+// Route::post('user/activate', [
+//     'as' => 'user.activate',
+//     'uses' => 'Modules\Core\Http\Controllers\Core\UserController@toggleActivate'
+// ]);
+// Route::post(
+//     '/user/{user}/admin_reset_user_password',
+//     'Modules\Core\Http\Controllers\Core\UserController@adminResetUserPassword'
+// );
+// Route::post(
+//     '/user/{user}/admin_trash_user',
+//     'Modules\Core\Http\Controllers\Core\UserController@adminTrashUser'
+// );
+// Route::get('/user/display', 'Modules\Core\Http\Controllers\Core\UserController@display');
+// Route::resource('user', 'Modules\Core\Http\Controllers\Core\UserController');
+// Route::bind('user', function ($value) {
+//     $id = Hashids::decode($value)[0];
+//     return Modules\Core\User::find($id);
+// });
 
 /**
  * User Levels
