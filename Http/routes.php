@@ -1,9 +1,9 @@
 <?php
-Route::get('/', function () {
-    if (!Auth::check()) {
-        return redirect('auth/login');
-    }
-});
+// Route::get('/', function () {
+//     if (!Auth::check()) {
+//         return redirect('auth/login');
+//     }
+// });
 
 /**
  * Authentication
@@ -65,145 +65,145 @@ Route::get('/', function () {
 /**
  * User Levels
  */
-Route::get('/user_level/display/{s?}', 'Modules\Core\Http\Controllers\Core\UserLevelController@display');
-Route::resource('user_level', 'Modules\Core\Http\Controllers\Core\UserLevelController');
-Route::bind('user_level', function ($value) {
-    $id = Hashids::decode($value)[0];
-    return Modules\Core\UserLevel::find($id);
-});
+// Route::get('/user_level/display/{s?}', 'Modules\Core\Http\Controllers\Core\UserLevelController@display');
+// Route::resource('user_level', 'Modules\Core\Http\Controllers\Core\UserLevelController');
+// Route::bind('user_level', function ($value) {
+//     $id = Hashids::decode($value)[0];
+//     return Modules\Core\UserLevel::find($id);
+// });
 
-/**
- * Profile
- */
-Route::post(
-    '/profile/{user}/confirm_delete_my_account',
-    'Modules\Core\Http\Controllers\Core\ProfileController@confirmDeleteMyAccount'
-);
-Route::post(
-    '/profile/{user}/update_avatar',
-    'Modules\Core\Http\Controllers\Core\ProfileController@updateAvatar'
-);
-Route::get(
-    '/profile/{user}/delete_my_account',
-    'Modules\Core\Http\Controllers\Core\ProfileController@deleteMyAccount'
-);
-Route::resource('profile', 'Modules\Core\Http\Controllers\Core\ProfileController');
-Route::bind('profile', function ($value) {
-    $id = Hashids::decode($value)[0];
-    return Modules\Core\User::find($id);
-});
+// /**
+//  * Profile
+//  */
+// Route::post(
+//     '/profile/{user}/confirm_delete_my_account',
+//     'Modules\Core\Http\Controllers\Core\ProfileController@confirmDeleteMyAccount'
+// );
+// Route::post(
+//     '/profile/{user}/update_avatar',
+//     'Modules\Core\Http\Controllers\Core\ProfileController@updateAvatar'
+// );
+// Route::get(
+//     '/profile/{user}/delete_my_account',
+//     'Modules\Core\Http\Controllers\Core\ProfileController@deleteMyAccount'
+// );
+// Route::resource('profile', 'Modules\Core\Http\Controllers\Core\ProfileController');
+// Route::bind('profile', function ($value) {
+//     $id = Hashids::decode($value)[0];
+//     return Modules\Core\User::find($id);
+// });
 
-/**
- * Settings
- */
-Route::resource('setting', 'Modules\Core\Http\Controllers\Core\SettingController');
-Route::bind('setting', function ($value) {
-    $id = Hashids::decode($value)[0];
-    return Modules\Core\Setting::find($id);
-});
+// /**
+//  * Settings
+//  */
+// Route::resource('setting', 'Modules\Core\Http\Controllers\Core\SettingController');
+// Route::bind('setting', function ($value) {
+//     $id = Hashids::decode($value)[0];
+//     return Modules\Core\Setting::find($id);
+// });
 
-/**
- * Appearance
- */
-Route::resource('appearance', 'Modules\Core\Http\Controllers\Core\AppearanceController');
-Route::bind('appearance', function ($value) {
-    $id = Hashids::decode($value)[0];
-    return Modules\Core\Appearance::find($id);
-});
+// /**
+//  * Appearance
+//  */
+// Route::resource('appearance', 'Modules\Core\Http\Controllers\Core\AppearanceController');
+// Route::bind('appearance', function ($value) {
+//     $id = Hashids::decode($value)[0];
+//     return Modules\Core\Appearance::find($id);
+// });
 
-/**
- * Update application logo
- */
-Route::any(
-    '/update_application_logo',
-    'Modules\Core\Http\Controllers\Core\SettingController@updateApplicationLogo'
-);
+// /**
+//  * Update application logo
+//  */
+// Route::any(
+//     '/update_application_logo',
+//     'Modules\Core\Http\Controllers\Core\SettingController@updateApplicationLogo'
+// );
 
-/**
- * User integrations
- */
-Route::resource('integration', 'Modules\Core\Http\Controllers\Core\UserIntegrationController');
-Route::bind('integration', function ($value) {
-    $id = Hashids::decode($value)[0];
-    return Modules\Core\UserIntegration::find($id);
-});
+// /**
+//  * User integrations
+//  */
+// Route::resource('integration', 'Modules\Core\Http\Controllers\Core\UserIntegrationController');
+// Route::bind('integration', function ($value) {
+//     $id = Hashids::decode($value)[0];
+//     return Modules\Core\UserIntegration::find($id);
+// });
 
-/**
- * Features
- */
-Route::get('/feature/display/{s?}', 'Modules\Core\Http\Controllers\Core\FeatureController@display');
-Route::resource('feature', 'Modules\Core\Http\Controllers\Core\FeatureController');
-Route::bind('feature', function ($value) {
-    $id = Hashids::decode($value)[0];
-    return Modules\Core\Feature::find($id);
-});
+// /**
+//  * Features
+//  */
+// Route::get('/feature/display/{s?}', 'Modules\Core\Http\Controllers\Core\FeatureController@display');
+// Route::resource('feature', 'Modules\Core\Http\Controllers\Core\FeatureController');
+// Route::bind('feature', function ($value) {
+//     $id = Hashids::decode($value)[0];
+//     return Modules\Core\Feature::find($id);
+// });
 
-/**
- * Handle assets
- */
-Route::get('cwa_css/{cwa_module}/{file}', function ($cwa_module, $file) {
-    $ext = substr($file, -3);
-    if ($ext == 'off' || $ext == 'ttf') {
-        $response = Response::make(
-            file_get_contents(
-                base_path().'/vendor/gerizal/core-module/Assets/AdminLTE/fonts/'.$file
-            )
-        );
-        $response->header('Content-Type', 'font/opentype');
-        return $response;
-    }
+// /**
+//  * Handle assets
+//  */
+// Route::get('cwa_css/{cwa_module}/{file}', function ($cwa_module, $file) {
+//     $ext = substr($file, -3);
+//     if ($ext == 'off' || $ext == 'ttf') {
+//         $response = Response::make(
+//             file_get_contents(
+//                 base_path().'/vendor/gerizal/core-module/Assets/AdminLTE/fonts/'.$file
+//             )
+//         );
+//         $response->header('Content-Type', 'font/opentype');
+//         return $response;
+//     }
 
-    $response = Response::make(
-        file_get_contents(
-            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/css/'.str_replace('&', '/', $file)
-        )
-    );
-    $response->header('Content-Type', 'text/css');
-    return $response;
-});
+//     $response = Response::make(
+//         file_get_contents(
+//             base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/css/'.str_replace('&', '/', $file)
+//         )
+//     );
+//     $response->header('Content-Type', 'text/css');
+//     return $response;
+// });
 
-Route::get('cwa_js/{cwa_module}/{file}', function ($cwa_module, $file) {
-    $response = Response::make(
-        file_get_contents(
-            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/js/'.$file
-        )
-    );
-    $response->header('Content-Type', 'text/javascript');
-    return $response;
-});
+// Route::get('cwa_js/{cwa_module}/{file}', function ($cwa_module, $file) {
+//     $response = Response::make(
+//         file_get_contents(
+//             base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/js/'.$file
+//         )
+//     );
+//     $response->header('Content-Type', 'text/javascript');
+//     return $response;
+// });
 
-Route::get('cwa_img/{cwa_module}/{file}', function ($cwa_module, $file) {
-    $response = Response::make(
-        file_get_contents(
-            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/img/'.$file
-        )
-    );
-    $response->header('Content-Type', 'text/css');
-    return $response;
-});
+// Route::get('cwa_img/{cwa_module}/{file}', function ($cwa_module, $file) {
+//     $response = Response::make(
+//         file_get_contents(
+//             base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/img/'.$file
+//         )
+//     );
+//     $response->header('Content-Type', 'text/css');
+//     return $response;
+// });
 
-Route::get('cwa_plugin/{cwa_module}/{file}', function ($cwa_module, $file) {
-    if ($file == 'blue.png') {
-        $response = Response::make(
-            file_get_contents(
-                base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/plugins/iCheck/square/'.$file
-            )
-        );
-        return $response;
-    }
+// Route::get('cwa_plugin/{cwa_module}/{file}', function ($cwa_module, $file) {
+//     if ($file == 'blue.png') {
+//         $response = Response::make(
+//             file_get_contents(
+//                 base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/plugins/iCheck/square/'.$file
+//             )
+//         );
+//         return $response;
+//     }
 
-    $response = Response::make(
-        @file_get_contents(
-            base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/plugins/'.str_replace('&', '/', $file)
-        )
-    );
+//     $response = Response::make(
+//         @file_get_contents(
+//             base_path().'/vendor/gerizal/'.$cwa_module.'-module/Assets/AdminLTE/plugins/'.str_replace('&', '/', $file)
+//         )
+//     );
 
-    $ext = substr($file, -3);
-    if ($ext == 'css') {
-        $response->header('Content-Type', 'text/css');
-    } else {
-        $response->header('Content-Type', 'text/javascript');
-    }
+//     $ext = substr($file, -3);
+//     if ($ext == 'css') {
+//         $response->header('Content-Type', 'text/css');
+//     } else {
+//         $response->header('Content-Type', 'text/javascript');
+//     }
 
-    return $response;
-});
+//     return $response;
+// });
